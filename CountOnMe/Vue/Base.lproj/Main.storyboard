@@ -57,36 +57,31 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uNo-cN-QjF">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uNo-cN-QjF">
                                         <rect key="frame" x="117" y="0.0" width="109" height="129"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6UL-ro-qoO">
-                                                <rect key="frame" x="0.0" y="0.0" width="109" height="129"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQq-k8-baq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="109" height="63"/>
-                                                        <color key="backgroundColor" red="0.87294975829999999" green="0.37112226879999999" blue="0.32504552809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                                        <state key="normal" title="x">
-                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="tappedSubstractionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="D4N-Hx-OMc"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtr-Db-KxF">
-                                                        <rect key="frame" x="0.0" y="71" width="109" height="58"/>
-                                                        <color key="backgroundColor" red="0.46913260919999999" green="0.7149516575" blue="0.62407517239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                                        <state key="normal" title="%">
-                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="tappedAdditionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="Uxs-3c-TO0"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQq-k8-baq">
+                                                <rect key="frame" x="0.0" y="0.0" width="109" height="63"/>
+                                                <color key="backgroundColor" red="0.015775226060000001" green="0.39592924709999999" blue="0.60368543860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                                <state key="normal" title="x">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tappedMultiplicationButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="C3P-LY-T6n"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtr-Db-KxF">
+                                                <rect key="frame" x="0.0" y="71" width="109" height="58"/>
+                                                <color key="backgroundColor" red="0.71360510590000004" green="0.84258151049999996" blue="0.90132403370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                                <state key="normal" title="/">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tappedDivisionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="3Oc-bv-EfV"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMj-Of-bCU">
@@ -101,6 +96,10 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="uNo-cN-QjF" firstAttribute="width" secondItem="f8n-SF-CbE" secondAttribute="width" id="ARJ-vy-Yhv"/>
+                                    <constraint firstItem="uNo-cN-QjF" firstAttribute="height" secondItem="f8n-SF-CbE" secondAttribute="height" id="KHQ-Da-caU"/>
+                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="isI-Gg-Iye">
                                 <rect key="frame" x="34" y="317" width="346" height="400"/>
@@ -232,15 +231,11 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="U2a-5D-kgc" firstAttribute="width" secondItem="isI-Gg-Iye" secondAttribute="width" multiplier="0.317919" id="7pZ-Gf-E8j"/>
                                     <constraint firstItem="xWG-wS-5L9" firstAttribute="centerX" secondItem="isI-Gg-Iye" secondAttribute="centerX" id="CLr-KA-M78"/>
                                     <constraint firstItem="xWG-wS-5L9" firstAttribute="centerY" secondItem="isI-Gg-Iye" secondAttribute="centerY" id="HHk-y0-Lzc"/>
                                     <constraint firstItem="U2a-5D-kgc" firstAttribute="height" secondItem="isI-Gg-Iye" secondAttribute="height" multiplier="0.74" id="IVW-BR-MZm"/>
-                                    <constraint firstItem="WCv-mh-kCr" firstAttribute="width" secondItem="isI-Gg-Iye" secondAttribute="width" multiplier="0.317919" id="acn-GL-A4P"/>
                                     <constraint firstItem="WCv-mh-kCr" firstAttribute="height" secondItem="isI-Gg-Iye" secondAttribute="height" multiplier="0.74" id="bWa-Yb-yrY"/>
                                     <constraint firstItem="xWG-wS-5L9" firstAttribute="height" secondItem="isI-Gg-Iye" secondAttribute="height" id="kOn-K6-Yep"/>
-                                    <constraint firstItem="xWG-wS-5L9" firstAttribute="width" secondItem="isI-Gg-Iye" secondAttribute="width" multiplier="0.317919" id="wJV-Ra-vAA"/>
-                                    <constraint firstAttribute="height" constant="400" id="yLB-2m-SQU"/>
                                 </constraints>
                             </stackView>
                         </subviews>

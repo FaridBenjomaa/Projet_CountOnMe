@@ -13,7 +13,7 @@ class Calcul{
     var addition = " + "
     var substraction = " - "
     var multiplication = " x "
-    var division = " / "
+    var division = " ÷ "
     
     func addition(_ a: Int, _ b: Int) ->Int{
         let result = a + b

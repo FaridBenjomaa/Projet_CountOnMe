@@ -15,25 +15,28 @@ class Calcul{
     var multiplication = " x "
     var division = " ÷ "
     
-    func addition(_ a: Int, _ b: Int) ->Int{
+    func makeAddition(_ a: Double, _ b: Double) ->Double{
         let result = a + b
         return result
     }
     
-    func substraction(_ a: Int, _ b: Int) ->Int{
+    func makeSubstraction(_ a: Double, _ b: Double) ->Double{
         let result = a - b
         return result
     }
    
-    func multiplication(_ a: Int, _ b: Int) ->Int{
+    func makeMultiplication(_ a: Double, _ b: Double) ->Double{
         let result = a * b
         return result
     }
     
-    func division(_ a: Int, _ b: Int) ->Float{
-        let result = Float(a) / Float(b)
+    func makeDivision(_ a: Double, _ b: Double) ->Double{
+        let result = Double(a) / Double(b)
         return result
     }
     
+    func multiplicationFisrt(){
+        
+    }
     
 }

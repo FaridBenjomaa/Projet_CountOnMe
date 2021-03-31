@@ -35,8 +35,12 @@ class Calcul{
         return result
     }
     
-    func multiplicationFisrt(){
+    func operationThreeElement(array: Array<String>) -> Array<String>{
+        let left = array[0]
+        let operand = array[1]
+        let right = array [2]
         
+        return array
     }
     
 }

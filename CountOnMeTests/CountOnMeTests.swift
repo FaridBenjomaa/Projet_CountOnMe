@@ -39,6 +39,26 @@ class CountOnMeTests: XCTestCase {
         XCTAssert(result == 5)
     }
     
+    func testGiven2_WhenAdd2multiplyBy4_ThenResultShouldBe10(){
+        var operation = ["2", "+", "2", "x", "4"]
+        
+        operation = calcul.oprerationFirst(array: operation)
+        operation = calcul.operationThreeElement(array: operation)
+
+        XCTAssert(operation == ["10"])
+    }
+    
+    func testGivenDoubleMultiplication_WhenMultiply2By4and2by5_ThenResultShouldBe18(){
+        var operation = ["2", "x", "4", "+", "2", "x", "5"]
+        
+        while operation.count > 3{
+            operation = calcul.oprerationFirst(array: operation)
+        }
+        operation = calcul.operationThreeElement(array: operation)
+
+        XCTAssert(operation == ["18"])
+    }
+    
     
   
 }

@@ -27,6 +27,10 @@ class ViewController: UIViewController {
         return elements.count >= 3
     }
     
+    var expressionHaveTooMuchElement: Bool {
+        return elements.count <= 6
+    }
+    
     var canAddOperator: Bool {
         return elements.last != "+" && elements.last != "-" && elements.last != "x" && elements.last != "÷"
     }
@@ -105,59 +109,27 @@ class ViewController: UIViewController {
             return self.present(alertVC, animated: true, completion: nil)
         }
         
+        guard expressionHaveTooMuchElement else {
+            let alertVC = UIAlertController(title: "Zéro!", message: "Merci de reduire la taille de votre calcul", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            return self.present(alertVC, animated: true, completion: nil)
+        }
+        
         // Create local copy of operations
         var operations = elements
-        let operationsToDoFirst = elements
    
         while operations.count > 1 {
-            var left = Double(operations[0])!
-
-            var right = Double(operations[2])!
-            var result: String = "0"
-            
-            if operations.count > 3{
+          
+            while operations.count > 3{
+               
+                operations = calcul.oprerationFirst(array: operations)
                 
-                for (index, elements) in operationsToDoFirst.enumerated() {
-                    
-                    func oprerationFirst(){
-                        
-                        left = Double(operationsToDoFirst[index-1])!
-                        right = Double(operationsToDoFirst[index+1])!
-                        
-                        if  elements == "x"{
-                            result = "\(calcul.makeMultiplication(left, right))"
-                        }else if elements == "÷"{
-                            result = "\(calcul.makeDivision(left, right))"
-                        }
-                        
-                        let newResult = result
-                        operations.remove(at: index)
-                        operations.insert("\(newResult)", at: index)
-                        operations.remove(at: index+1)
-                        operations.remove(at: index-1)
-                    }
-                    
-                    if elements == "x" || elements == "÷" {
-                        oprerationFirst()
-                    }
             }
+           
+            operations = calcul.operationThreeElement(array: operations)
+    
         }
-            left = Double(operations[0])!
-            let operand = operations[1]
-            right = Double(operations[2])!
-            switch operand {
-                case "+": result = "\(calcul.makeAddition(left, right))"
-                case "-": result = "\(calcul.makeSubstraction(left, right))"
-                case "x": result = "\(calcul.makeMultiplication(left, right))"
-                case "÷": result = "\(calcul.makeDivision(left, right))"
-                default: fatalError("Unknown operator !")
-            }
-            operations = Array(operations.dropFirst(3))
-            if (Double(result)!.truncatingRemainder(dividingBy: 1) == 0) {
-                result = "\(Int(Double(result)!))"
-            }
-            operations.insert("\(result)", at: 0)
-        }
+      
         textView.text.append(" = \(operations.first!)")
     }
 

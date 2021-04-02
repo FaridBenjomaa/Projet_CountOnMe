@@ -18,6 +18,10 @@ class ViewController: UIViewController {
         return textView.text.split(separator: " ").map { "\($0)" }
     }
     
+    @IBAction func clear(_ sender: Any) {
+        textView.text.removeAll()
+        textView.text.append("")
+    }
     // Error check computed variables
     var expressionIsCorrect: Bool {
         return elements.last != "+" && elements.last != "-" && elements.last != "x" && elements.last != "÷"
@@ -28,7 +32,7 @@ class ViewController: UIViewController {
     }
     
     var expressionHaveTooMuchElement: Bool {
-        return elements.count <= 6
+        return elements.count < 8
     }
     
     var canAddOperator: Bool {

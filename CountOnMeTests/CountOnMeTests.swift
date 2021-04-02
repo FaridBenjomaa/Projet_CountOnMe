@@ -13,8 +13,6 @@ class CountOnMeTests: XCTestCase {
     let calcul = Calcul()
     var controller:ViewController!
     
-   
-    
     func testGiven5_WhenAdditionBy5_ThenResultShouldBe10(){
         let result = calcul.makeAddition(5, 5)
         

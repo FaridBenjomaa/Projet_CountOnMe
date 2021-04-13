@@ -39,6 +39,16 @@ class ViewController: UIViewController {
         return elements.last != "+" && elements.last != "-" && elements.last != "x" && elements.last != "÷"
     }
     
+    var canDivid: Bool {
+        var canDivid = true
+        if elements.contains("÷") && elements.last == "0" {
+            canDivid = false
+        }else{
+            canDivid = false
+        }
+        return canDivid
+    }
+    
     var expressionHaveResult: Bool {
         return textView.text.firstIndex(of: "=") != nil
     }
@@ -113,6 +123,11 @@ class ViewController: UIViewController {
             return self.present(alertVC, animated: true, completion: nil)
         }
         
+        guard canDivid else {
+            let alertVC = UIAlertController(title: "Zéro!", message: "vous ne pouvez pas diviser par 0, Démarrez un nouveau calcul !", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            return self.present(alertVC, animated: true, completion: nil)
+        }
         guard expressionHaveTooMuchElement else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Merci de reduire la taille de votre calcul", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -125,13 +140,18 @@ class ViewController: UIViewController {
         while operations.count > 1 {
           
             while operations.count > 3{
-               
-                operations = calcul.oprerationFirst(array: operations)
+    
+                if operations.contains("x") || operations.contains("÷"){
+                    operations = calcul.oprerationFirst(array: operations)
+                }else{
+                    operations = calcul.operationThreeElement(array: operations)
+                }
                 
             }
-           
-            operations = calcul.operationThreeElement(array: operations)
-    
+         
+                    operations = calcul.operationThreeElement(array: operations)
+         
+
         }
       
         textView.text.append(" = \(operations.first!)")
